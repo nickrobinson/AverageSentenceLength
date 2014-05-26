@@ -15,9 +15,30 @@
  *  lines in our programs and encourage you to do the same.
  *
  *************************************************************************/
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class AverageSentenceLength {
 	public static void main(String[] args) {
-        System.out.println("Hello, World");
+		String fileName = args[0];
+		FileReader inputStream = null;
+		
+		try {
+			inputStream = new FileReader(fileName);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		int c;
+		try {
+			while ((c = inputStream.read()) != -1) {
+			    System.out.print(c);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }
